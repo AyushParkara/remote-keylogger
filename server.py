@@ -16,7 +16,8 @@ print("Connected by " + addr[0])
 while True:
     data = conn.recv(1024)  # Receive client data
     if not data:
-        break
+        break  # Exit the loop when the client disconnects
     print(data.decode('utf-8'))
 
 conn.close()  # Close the connection when done
+s.close()
